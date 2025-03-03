@@ -109,6 +109,12 @@ return {
         settings = { css = { lint = { unknownAtRules = 'ignore', }, }, },
       })
 
+      require('lspconfig').biome.setup({
+        cmd = { "biome", "lsp-proxy" }, -- Usa biome como LSP
+        filetypes = { "astro", "css", "graphql", "javascript", "javascriptreact", "json", "jsonc", "svelte", "typescript", "typescript.tsx", "typescriptreact", "vue" },
+        root_dir = require('lspconfig').util.root_pattern("biome.json", "package.json", ".git")
+      })
+
       -- Specific configuration for the tsserver LSP server
       require("lspconfig").ts_ls.setup({
         init_options = {
