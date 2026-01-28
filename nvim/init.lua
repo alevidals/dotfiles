@@ -1,16 +1,18 @@
--- To user space as leader key
+-- Set leader key as space
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Disable neovim file explorer (netrw) because I will use tree
+-- Disable netrw I will use tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Define the route where lazy should be installed
+
+vim.opt.termguicolors = true
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
--- Check if is installed and if not install it
 if not vim.loop.fs_stat(lazypath) then
+  print("AAA")
   vim.fn.system({
     "git",
     "clone",
@@ -20,7 +22,8 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
--- To recognise it without restart neovim
+
+-- To recognise Lazy without restart neovim
 vim.opt.rtp:prepend(lazypath)
 
 vim.o.shell = "/bin/zsh"
