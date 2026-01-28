@@ -6,9 +6,7 @@ return {
       local lga_actions = require("telescope-live-grep-args.actions")
       require("telescope").setup({
         extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown({}),
-          },
+          ["ui-select"] = require("telescope.themes").get_dropdown({}),
 
           live_grep_args = {
             auto_quoting = true,
@@ -62,7 +60,7 @@ return {
       local actions = require("telescope.actions")
       local builtin = require("telescope.builtin")
       local themes = require("telescope.themes")
-      local extensions = require("telescope").extensions
+      local extensions = telescope.extensions
 
       local function telescope_buffer_dir()
         return vim.fn.expand("%:p:h")
@@ -79,13 +77,11 @@ return {
           },
         },
         extensions = {
-          extensions = {
-            fzf = {
-              fuzzy = true,
-              override_generic_sorter = true,
-              override_file_sorter = true,
-              case_mode = "smart_case",
-            },
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
           },
           file_browser = {
             theme = "dropdown",
@@ -122,7 +118,7 @@ return {
       end, { desc = "[P]roject [S]earch Live Grep" })
 
       vim.keymap.set("n", "<leader>pS", function()
-        require("telescope.builtin").resume()
+        builtin.resume()
       end, { desc = "[P]roject Resume [S]earch Live Grep" })
 
       vim.keymap.set("n", "<leader>/", function()
@@ -144,3 +140,4 @@ return {
     end,
   },
 }
+
