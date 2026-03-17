@@ -7,10 +7,10 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "[D]elete without ya
 
 -- Replace every occurence of the word under the cursor
 vim.keymap.set(
-  "n",
-  "<leader>r",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace every occurence of the word under the cursor" }
+	"n",
+	"<leader>r",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace every occurence of the word under the cursor" }
 )
 
 -- Keep the cursor in the middle of the screen when jumping up and down

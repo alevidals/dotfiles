@@ -24,13 +24,14 @@ end
 -- To recognise Lazy without restart neovim
 vim.opt.rtp:prepend(lazypath)
 
--- vim.o.shell = "/bin/zsh"
+vim.o.shell = "/bin/zsh"
 
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
+		{ import = "plugins.lsp" },
 	},
 })
+require("lsp")
 require("set")
 require("remap")
-require("diagnostics")
